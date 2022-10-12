@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.EventListener;
 
 public class CalcUI extends JFrame {
     JTextField text;
@@ -77,12 +76,7 @@ public class CalcUI extends JFrame {
         add(bBack);
         add(bEquals);
 
-        b0.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                text.setText(text.getText() + "0");
-            }
-        });
+        b0.addActionListener(e -> text.setText(text.getText() + "0"));
 
         b1.addActionListener(new ActionListener() {
             @Override
@@ -91,12 +85,7 @@ public class CalcUI extends JFrame {
             }
         });
 
-        b2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                text.setText(text.getText() + "2");
-            }
-        });
+        b2.addActionListener(e -> text.setText(text.getText() + "2"));
 
         b3.addActionListener(new ActionListener() {
             @Override
@@ -112,12 +101,7 @@ public class CalcUI extends JFrame {
             }
         });
 
-        b5.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                text.setText(text.getText() + "5");
-            }
-        });
+        b5.addActionListener(e -> text.setText(text.getText() + "5"));
 
         b6.addActionListener(new ActionListener() {
             @Override
@@ -126,19 +110,9 @@ public class CalcUI extends JFrame {
             }
         });
 
-        b7.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                text.setText(text.getText() + "7");
-            }
-        });
+        b7.addActionListener(e -> text.setText(text.getText() + "7"));
 
-        b8.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                text.setText(text.getText() + "8");
-            }
-        });
+        b8.addActionListener(e -> text.setText(text.getText() + "8"));
 
         b9.addActionListener(new ActionListener() {
             @Override
@@ -147,38 +121,19 @@ public class CalcUI extends JFrame {
             }
         });
 
-        bAdd.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                text.setText(text.getText() + "+");
-            }
-        });
+        bAdd.addActionListener(e -> text.setText(text.getText() + "+"));
 
-        bSub.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                text.setText(text.getText() + "-");
-            }
-        });
+        bSub.addActionListener(e -> text.setText(text.getText() + "-"));
 
-        bMul.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                text.setText(text.getText() + "*");
-            }
-        });
+        bMul.addActionListener(e -> text.setText(text.getText() + "*"));
 
-        bDiv.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                text.setText(text.getText() + "/");
-            }
-        });
+        bDiv.addActionListener(e -> text.setText(text.getText() + "/"));
 
         bEquals.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//          Implement the equals logic
+                Evaluator evaluate = new Evaluator();
+                text.setText(String.valueOf(evaluate.eval(text.getText())));
             }
         });
 
@@ -199,12 +154,7 @@ public class CalcUI extends JFrame {
             }
         });
 
-        bReset.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                text.setText("");
-            }
-        });
+        bReset.addActionListener(e -> text.setText(""));
 
         bBack.addActionListener(new ActionListener() {
             @Override
